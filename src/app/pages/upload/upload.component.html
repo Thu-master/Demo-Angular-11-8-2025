@@ -1,0 +1,39 @@
+<form class="container-form" [formGroup]="productForm" (keydown.enter)="submit()">
+<p>
+  <mat-form-field appearance="outline">
+    <mat-label>ID</mat-label>
+    <input matInput placeholder="Nhap ID san pham" formControlName="id">
+    <mat-hint>Hint</mat-hint>
+  </mat-form-field>
+</p>
+<p>
+  <mat-form-field appearance="outline">
+    <mat-label>Name</mat-label>
+    <input matInput placeholder="Nhap ten san pham" formControlName="name">
+    <mat-hint>Hint</mat-hint>
+  </mat-form-field>
+</p>
+  <p>
+    <mat-form-field appearance="outline">
+      <mat-label>Description</mat-label>
+      <input matInput placeholder="Mo ta san pham" formControlName="description">
+      <mat-hint>Hint</mat-hint>
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field appearance="outline">
+      <mat-label>Price</mat-label>
+      <input matInput placeholder="Gia" formControlName="price">
+      <mat-hint>Hint</mat-hint>
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field appearance="outline">
+      <mat-label>Image</mat-label>
+      <input matInput placeholder="Link hinh" formControlName="imageUrl">
+      <mat-hint>Hint</mat-hint>
+    </mat-form-field>
+  </p>
+  <button mat-button (click)="submit()">submit</button>
+  <button mat-button (click)="empty()">reset</button>
+</form>

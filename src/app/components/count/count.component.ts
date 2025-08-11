@@ -1,22 +1,18 @@
 import {ChangeDetectionStrategy, Component, OnDestroy, OnInit} from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import {CountComponent} from './components/count/count.component';
-import {CounterService} from './services/counter/counter.service';
-import {count, Observable, Subscription} from 'rxjs';
-import {Store} from '@ngrx/store';
-import * as CounterActions from '../app/ngrx/actions/couter.action'
 import {MatButton} from '@angular/material/button';
-import {UploadComponent} from './pages/upload/upload.component';
-import {HeaderComponent} from './components/header/header.component';
+import {Observable, Subscription} from 'rxjs';
+import {Store} from '@ngrx/store';
+import * as CounterActions from '../../ngrx/actions/couter.action';
 
 @Component({
-  selector: 'app-root',
-  imports: [RouterOutlet, CountComponent, MatButton, UploadComponent, HeaderComponent],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss',
+  selector: 'app-count',
+  imports: [
+    MatButton
+  ],
+  templateUrl: './count.component.html',
+  styleUrl: './count.component.scss',
 })
-export class AppComponent implements OnInit , OnDestroy {
-  title = 'demo-11.8';
+export class CountComponent implements OnInit, OnDestroy {
 
   subcription:Subscription[] = []
   count$!: Observable<number>;
@@ -34,7 +30,7 @@ export class AppComponent implements OnInit , OnDestroy {
         this.countInCount = count
         console.log('count value:', count);
       })
-      )
+    )
   }
 
   increment() {
@@ -47,6 +43,5 @@ export class AppComponent implements OnInit , OnDestroy {
   ngOnDestroy() {
     this.subcription.forEach(subcription => subcription.unsubscribe());
   }
-
 
 }
